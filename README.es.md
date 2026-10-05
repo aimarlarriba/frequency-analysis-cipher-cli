@@ -3,6 +3,7 @@
 # Frequency Analysis Cryptanalysis CLI
 
 <p align="center">
+  [![CI Tests](https://github.com/aimarlarriba/frequency-analysis-cipher-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/aimarlarriba/frequency-analysis-cipher-cli/actions/workflows/ci.yml)
   <img src="https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Version"/>
   <img src="https://img.shields.io/badge/Domain-Classical%20Cryptography-red?style=for-the-badge" alt="Domain"/>
   <img src="https://img.shields.io/badge/Architecture-Interactive%20CLI%20REPL-blue?style=for-the-badge" alt="CLI REPL"/>
