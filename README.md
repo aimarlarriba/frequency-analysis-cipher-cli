@@ -1,3 +1,5 @@
+[🇬🇧 English](README.md) | [🇪🇸 Español](README.es.md)
+
 # Frequency Analysis Cryptanalysis CLI
 
 <p align="center">
@@ -10,29 +12,29 @@
 
 ---
 
-## 📌 Resumen del Proyecto
+## 📌 Project Overview
 
-**Frequency Analysis Cryptanalysis CLI** es una herramienta en Python diseñada para el **criptoanálisis interactivo de cifrados por sustitución monoalfabética** mediante el estudio de distribuciones de frecuencia de caracteres en el idioma español.
+**Frequency Analysis Cryptanalysis CLI** is a lightweight, interactive Python tool engineered for the **heuristic cryptanalysis of monoalphabetic substitution ciphers** using linguistic letter frequency distributions in the Spanish language.
 
-Los cifrados clásicos de sustitución monoalfabética preservan la signatura lingüística y la entropía del idioma original. Esta herramienta automatiza la correspondencia estadística de máxima verosimilitud entre las frecuencias observadas en el criptograma y el corpus de referencia de la lengua española (RAE/Cervantes), proporcionando un **entorno REPL interactivo** para que el analista realice ajustes finos de equivalencias en tiempo real.
-
----
-
-## 🚀 Características Principales
-
-* 📊 **Mapeo Heurístico Automatizado:** Calcula las frecuencias relativas del criptograma y genera un primer mapa de sustitución basado en la curva de frecuencias del español (`E`, `A`, `O`, `L`, `S`...).
-* 🛠️ **Consola Interactiva (Human-in-the-Loop):** Permite fijar pares manuales de letras (`x=e`, `k=a`) y recalcula automáticamente la redistribución del resto del alfabeto.
-* 🔠 **Preservación de Formato:** Mantiene la capitalización original (mayúsculas/minúsculas), signos de puntuación, saltos de línea y caracteres especiales.
-* ⚡ **Cero Dependencias Externas:** Desarrollado íntegramente sobre la **librería estándar de Python** (`collections`, `argparse`, `typing`).
-* 📁 **Soporte CLI Flexible:** Admite texto directo por argumentos, lectura de archivos de texto (`-f / --file`) o modo desatendido (`--auto`).
+Classical monoalphabetic ciphers preserve the underlying language entropy and character signature. This utility automates the initial maximum-likelihood statistical matching between observed ciphertext symbol frequencies and the baseline Spanish corpus distribution (RAE/Cervantes corpus), while providing an interactive **Human-in-the-Loop REPL environment** for real-time substitution refinement and key recovery.
 
 ---
 
-## 🧮 Fundamento Criptográfico
+## 🚀 Key Features
 
-En cualquier texto extenso en español, la distribución de frecuencias de las letras no es uniforme, sino que exhibe un patrón característico:
+* 📊 **Automated Statistical Mapping:** Computes relative letter frequencies in the ciphertext and establishes a maximum-likelihood substitution mapping using standard Spanish corpus distributions (`E`, `A`, `O`, `L`, `S`...).
+* 🛠️ **Interactive REPL Assistant:** Dynamic terminal console allowing the analyst to fix known character pairs (`x=e`, `k=a`) and automatically recompute remaining alphabet mappings on the fly.
+* 🔠 **Format & Case Preservation:** Fully preserves original casing (uppercase/lowercase), punctuation, accents, line breaks, and whitespace.
+* ⚡ **Zero External Dependencies:** Built 100% on the **Python Standard Library** (`collections`, `argparse`, `typing`).
+* 📁 **Flexible CLI Interface:** Supports direct positional arguments, ciphertext file inputs (`-f / --file`), or unattended execution (`--auto`).
 
-| Carácter | Frecuencia Relativa (%) | Carácter | Frecuencia Relativa (%) |
+---
+
+## 🧮 Cryptographic Foundation
+
+In Spanish texts of sufficient length, natural letter frequencies follow a well-defined non-uniform distribution:
+
+| Character | Relative Freq (%) | Character | Relative Freq (%) |
 | :---: | :---: | :---: | :---: |
 | **E** | 16.78% | **D** | 6.87% |
 | **A** | 11.96% | **R** | 4.94% |
@@ -41,79 +43,79 @@ En cualquier texto extenso en español, la distribución de frecuencias de las l
 | **S** | 7.88% | **T** | 3.31% |
 | **N** | 7.01% | **C** | 2.92% |
 
-El script contabiliza las apariciones en el texto cifrado, calcula porcentajes de aparición y asigna como hipótesis inicial las letras más comunes del castellano a los símbolos más frecuentes observados.
+The engine scans the ciphertext, calculates frequency percentages, and initializes substitution hypotheses by mapping top observed cipher symbols to top natural language letters.
 
 ---
 
-## ⚙️ Instalación y Uso Rápido
+## ⚙️ Installation & Quickstart
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 ```bash
 git clone https://github.com/aimarlarriba/frequency-analysis-cipher-cli.git
 cd frequency-analysis-cipher-cli
 ```
 
-### 2. Modos de Ejecución
+### 2. Execution Modes
 
-#### A) Modo Interactivo Asistido (Recomendado)
-Analizar un archivo de texto cifrado con el asistente interactivo:
+#### A) Interactive Assisted Mode (Recommended)
+Analyze a ciphertext file with the interactive REPL assistant:
 ```bash
 python descifrar.py -f samples/cifrado_quijote.txt
 ```
 
-#### B) Modo Directo por Argumento
+#### B) Direct Argument Mode
 ```bash
 python descifrar.py "Kk ec vemxo tk vx Bxkpjx..."
 ```
 
-#### C) Modo Automático Desatendido (`--auto`)
-Para pipelines o scripts que requieran el texto descifrado directamente por salida estándar:
+#### C) Automated Batch Mode (`--auto`)
+For scripts, pipes, or unattended evaluation:
 ```bash
 python descifrar.py -f samples/cifrado_quijote.txt --auto
 ```
 
 ---
 
-## 🖥️ Ejemplo de Sesión Interactiva
+## 🖥️ Interactive Console Demonstration
 
 ```text
 ======================================================
-Cifrada   Freq Obs (%)   Sustitución    Ref Español (%)
+Cipher     Obs Freq (%)   Substitution   Ref Spanish (%)
 ------------------------------------------------------
-x         14.85          e              16.78          
-k         11.22          a              11.96          
-r         9.15           o              8.69           
+x          14.85          e              16.78          
+k          11.22          a              11.96          
+r          9.15           o              8.69           
 ...
 ======================================================
 
---- TEXTO DESCIFRADO PROVISIONAL ---
+--- PROVISIONAL DECRYPTED TEXT ---
 En un lugar de la Mancha, de cuyo nombre no quiero acordarme...
 
-¿El descifrado es correcto y legible? (s/n): n
+Is the decrypted text legible and correct? (y/n): n
 
-Introduce correcciones (ej: 'x=e' o varias 'x=e z=a').
+Enter manual adjustments (e.g., 'x=e' or multiple 'x=e z=a').
 > x=e k=a
 ```
 
 ---
 
-## 🧪 Pruebas Automatizadas
+## 🧪 Automated Testing
 
-El proyecto incluye tests unitarios para verificar el motor de conteo estadístico, el mapeo condicional y la conservación de caracteres:
+Unit test suite validating frequency calculation, case preservation, and manual constraint enforcement:
 ```bash
 python -m unittest discover tests
 ```
 
 ---
 
-## 👥 Contexto Académico
+## 👥 Academic Context & Attribution
 
-Desarrollado originalmente como trabajo práctico para la asignatura de **Seguridad y Gestión de la Seguridad de Sistemas de Información (SGSSI)** en la **Universidad del País Vasco (UPV/EHU)**. 
+Originally conceptualized as an assignment for the **Security and Information Systems Security Management (SGSSI)** course at the **University of the Basque Country (UPV/EHU)**.
 
-Refactorizado, modularizado y mantenido por **[Aimar Larriba](https://github.com/aimarlarriba)** como utilidad didáctica de criptoanálisis clásico.
+Refactored, modularized, and maintained by **[Aimar Larriba](https://github.com/aimarlarriba)** as an educational classical cryptanalysis utility.
 
 ---
 
-## ⚖️ Licencia
+## ⚖️ License
 
-Distribuido bajo la Licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+Distributed under the **MIT** License. See [LICENSE](LICENSE) for more details.
