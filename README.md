@@ -49,8 +49,8 @@ El script contabiliza las apariciones en el texto cifrado, calcula porcentajes d
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/aimarlarriba/DescifradoFrecuencias_SGSSI.git
-cd DescifradoFrecuencias_SGSSI
+git clone https://github.com/aimarlarriba/frequency-analysis-cipher-cli.git
+cd frequency-analysis-cipher-cli
 ```
 
 ### 2. Modos de Ejecución
